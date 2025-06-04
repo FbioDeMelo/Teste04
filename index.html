@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EstoqueMax</title>
+    <link rel="stylesheet" href="inicio.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+    </nav>
+    <div id="overlay" class="overlay" onclick="closeSidebar()"></div>
+    <aside id="sidebar" class="sidebar">
+        <div class="logo-container">
+            <a href="inicioadmin.html">
+                <img src="Inserir_um_título__1_-removebg-preview.png" alt="Logo" class="logo">
+            </a>
+        </div>
+        <ul>
+            <li><a href="cadastroproduct.html" onclick="closeSidebar()">Cadastro de Produtos</a></li>
+            <li><a href="cadastrocliente.html" onclick="closeSidebar()"> Cadastro de Cliente</a></li>
+            <li><a href="retirada.html" onclick="closeSidebar()">Retiradas de Produtos</a></li>
+            <li><a href="#" onclick="closeSidebar()">Relatórios</a></li>
+        </ul>
+    </aside>
+    <main>
+        <h1>Seja Bem-Vindo</h1>
+        <div class="card-container"> 
+            <a href="testetela.html" class="card">
+                <div class="card-content">
+                    <img src="../CSS/Imagens/Inserir_um_título__1_-removebg-preview.png" alt="Logo" class="logo">
+                    <h3>Cadastro de Produtos</h3>
+                    <p>Adicione novos produtos ao estoque.</p>
+                </div>
+            </a>
+            <a href="retirada.html" class="card">
+                <div class="card-content">
+                    <img src="../CSS/Imagens/Inserir_um_título__1_-removebg-preview.png" alt="Logo" class="logo">
+                    <h3> Retirada de Produtos</h3>
+                    <p>Registre as saídas de produtos.</p>
+                </div>
+            </a>
+            <a href="relatorios.html" class="card">
+                <div class="card-content">
+                    <img src="../CSS/Imagens/Inserir_um_título__1_-removebg-preview.png" alt="Logo" class="logo">
+                    <h3>Cadastro de Cliente</h3>
+                    <p>Adicione e visualize os clientes.</p>
+                </div>
+            </a>
+        </div>
+    </main>
+    <script>
+        function toggleSidebar() {
+            document.getElementById("sidebar").classList.toggle("open");
+            document.getElementById("overlay").classList.toggle("active");
+        }
+        
+        function closeSidebar() {
+            document.getElementById("sidebar").classList.remove("open");
+            document.getElementById("overlay").classList.remove("active");
+        }
+        function filtrarProdutos() {
+    let input = document.getElementById("search").value.toLowerCase();
+    let rows = document.querySelectorAll("#product-table tr");
+
+    rows.forEach(row => {
+        let produto = row.cells[0]?.innerText.toLowerCase();
+        if (produto.includes(input)) {
+            row.style.display = "";
+        } else {
+            row.style.display = "none";
+        }
+    });
+}
+</script>
+</body>
+
+</html>
